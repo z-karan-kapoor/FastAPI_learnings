@@ -30,7 +30,7 @@
       				<td>{{ item.title }}</td>
       				<td>{{ item.description }}</td>
       				<td>
-						<button class="btn btn-danger" onclick={delete_item({{item.id}})}>Delete</button>
+						<button class="btn btn-danger" onclick="delete_item({{item.id}})">Delete</button>
 						<a href="/update/{{item.id}}" class="btn btn-primary">Edit</a>
 					</td>
     			</tr>
@@ -50,7 +50,7 @@
 	<script type="text/javascript">
 		function delete_item(id)
 		{
-			console.log("hi",id)
+			// console.log("hi",id)
 			fetch("/item/delete/"+id, {method:'DELETE'})
 			.then(response => response.json())
 			.then(data => document.getElementById("result").innerHTML = data.message)
